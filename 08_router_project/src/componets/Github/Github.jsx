@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useLoaderData } from 'react-router-dom'
+import UserContext from '../../assets/context/GitContext'
 
 function Github() {
-    // const data = useLoaderData()
-    const [data,setdata] = useState({})
-
+    const data = useLoaderData()
+    // const {setfollowers} = useContext(UserContext)
+    // const {followers} = useContext(UserContext)
+    setfollowers(data.followers)
     useEffect(() => {
         fetch('https://api.github.com/users/VKShubham')
         .then(res => res.json())
